@@ -179,5 +179,17 @@
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
 
+		<!-- Your script -->
+		<script>
+			// Paste the provided JavaScript code here
+			$(document).ready(function () {
+				$(window).scroll(function () {
+					var opacity = 1 - ($(window).scrollTop() / $('#wrapper').height());
+					$('.bg').css('opacity', opacity);
+				});
+			});
+		</script>
+
+
 	</body>
 </html>
