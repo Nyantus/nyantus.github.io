@@ -1,92 +1,187 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Drawing of the Dead</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
-  </head>
-  <body class="dark">
-    <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas"></canvas>
-    </div>
-    <div id="loading-cover" style="display:none;">
-      <div id="unity-loading-bar">
-        <div id="unity-logo"><img src="logo.png"></div>
-        <div id="unity-progress-bar-empty" style="display: none;">
-          <div id="unity-progress-bar-full"></div>
-        </div>
-        <div class="spinner"></div>
-      </div>
-    </div>
-    <div id="unity-fullscreen-button" style="display: none;"></div>
-    <script>
-      const hideFullScreenButton = "";
-      const buildUrl = "Build";
-      const loaderUrl = buildUrl + "/Build.loader.js";
-      const config = {
-        dataUrl: buildUrl + "/Build.data",
-        frameworkUrl: buildUrl + "/Build.framework.js",
-        codeUrl: buildUrl + "/Build.wasm",
-        streamingAssetsUrl: "StreamingAssets",
-        companyName: "Nyantus",
-        productName: "Drawing of the Dead",
-        productVersion: "1.01",
-      };
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Drawing of The Dead! *boo*</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="stylesheet" href="TemplateData/style.css">
 
-      const container = document.querySelector("#unity-container");
-      const canvas = document.querySelector("#unity-canvas");
-      const loadingCover = document.querySelector("#loading-cover");
-      const progressBarEmpty = document.querySelector("#unity-progress-bar-empty");
-      const progressBarFull = document.querySelector("#unity-progress-bar-full");
-      const fullscreenButton = document.querySelector("#unity-fullscreen-button");
-      const spinner = document.querySelector('.spinner');
+	</head>
+	<body class="is-preload">
 
-      const canFullscreen = (function() {
-        for (const key of [
-            'exitFullscreen',
-            'webkitExitFullscreen',
-            'webkitCancelFullScreen',
-            'mozCancelFullScreen',
-            'msExitFullscreen',
-          ]) {
-          if (key in document) {
-            return true;
-          }
-        }
-        return false;
-      }());
+		<!-- Wrapper -->
+			<div id="wrapper">
 
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        container.className = "unity-mobile";
-        config.devicePixelRatio = 1;
-      }
-      loadingCover.style.display = "";
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Game</a>
+					</header>
 
-      const script = document.createElement("script");
-      script.src = loaderUrl;
-      script.onload = () => {
-        createUnityInstance(canvas, config, (progress) => {
-          spinner.style.display = "none";
-          progressBarEmpty.style.display = "";
-          progressBarFull.style.width = `${100 * progress}%`;
-        }).then((unityInstance) => {
-          loadingCover.style.display = "none";
-          if (canFullscreen) {
-            if (!hideFullScreenButton) {
-              fullscreenButton.style.display = "";
-            }
-            fullscreenButton.onclick = () => {
-              unityInstance.SetFullscreen(1);
-            };
-          }
-        }).catch((message) => {
-          alert(message);
-        });
-      };
-      document.body.appendChild(script);
-    </script>
-  </body>
+				<!-- Nav -->
+				<nav id="nav">
+					<ul class="links">
+						<li><a href="index.html">Game Projects</a></li>
+						<li><a href="aboutme.html">About Me</a></li>
+						<li class="active"><a>Drawing of the Dead</a></li>
+				</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+		<!-- Featured Post -->
+		<article class="post featured">
+			<header class="major">
+
+			<h2>Drawing Of The Dead</h2>
+				</header>
+						<!-- <div id="unity-container" class="unity-desktop"> -->
+					<canvas id="unity-canvas" style="width:100%; margin-left:auto; margin-right: auto;"></canvas>
+							<div id="unity-loading-bar">
+							  <div id="unity-logo"></div>
+							  <div id="unity-progress-bar-empty">
+								<div id="unity-progress-bar-full"></div>
+							  </div>
+							</div>
+							<div id="unity-warning"> </div>
+							<div id="unity-footer">
+							  <div id="unity-webgl-logo"></div>
+							  <div id="unity-fullscreen-button"></div>
+							</div>
+
+							<br>
+							<h2 style="margin-top:0px;">How To Play</h2>
+							<p style="margin-top: 0px; margin-bottom: 0px;";><b>WASD</b> to Move the Player. <b>Spacebar</b> to Jump</p>
+							<p style="margin-top: 0px; margin-bottom: 0px;"><b>Q</b> to Move the Camera to the Left and <b>E</b> to move the Camera to the Right</p>
+							<p style="margin-top: 0px; margin-bottom: 0px;">You will have to use your drawing skills to kill <b>Zombies that spawns from the Portals.</b></p>
+							<p style="margin-top: 0px; margin-bottom: 0px;">Zombies will have a <b>Shape</b> above their head. You will need to <b>draw and match the Shape.</b></p>
+							<p style="margin-top: 0px; margin-bottom: 0px;"><b>Left Click</b> and move your mouse around to draw on the screen. <b>Right Click</b> after drawing to check your drawings.</p>
+							<p style="margin-top: 0px; margin-bottom: 0px;">If your drawing is recognized, the <b>closest visible Zombie of the shape drawn</b> with be smited.</p>
+							<br>
+							<h2>Disclaimer: Some of the drawings works better with your starting point being from the Right side.</br> e.g The Line Shape</h2>
+							<h2>Check How To Play to see the List of Shapes/Hints</h2>
+
+
+						  <!-- </div> -->
+			</article>
+					</div>
+
+			
+				<!-- Copyright -->
+					<!-- <div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div> -->
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script>
+
+				var container = document.querySelector("#unity-container");
+				var canvas = document.querySelector("#unity-canvas");
+				var loadingBar = document.querySelector("#unity-loading-bar");
+				var progressBarFull = document.querySelector("#unity-progress-bar-full");
+				var fullscreenButton = document.querySelector("#unity-fullscreen-button");
+				var warningBanner = document.querySelector("#unity-warning");
+		  
+				// Shows a temporary message banner/ribbon for a few seconds, or
+				// a permanent error message on top of the canvas if type=='error'.
+				// If type=='warning', a yellow highlight color is used.
+				// Modify or remove this function to customize the visually presented
+				// way that non-critical warnings and error messages are presented to the
+				// user.
+				function unityShowBanner(msg, type) {
+				  function updateBannerVisibility() {
+					warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
+				  }
+				  var div = document.createElement('div');
+				  div.innerHTML = msg;
+				  warningBanner.appendChild(div);
+				  if (type == 'error') div.style = 'background: red; padding: 10px;';
+				  else {
+					if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
+					setTimeout(function() {
+					  warningBanner.removeChild(div);
+					  updateBannerVisibility();
+					}, 5000);
+				  }
+				  updateBannerVisibility();
+				}
+		  
+				var buildUrl = "Build";
+				var loaderUrl = buildUrl + "/Build.loader.js";
+				var config = {
+				  dataUrl: buildUrl + "/Build.data",
+				  frameworkUrl: buildUrl + "/Build.framework.js",
+				  codeUrl: buildUrl + "/Build.wasm",
+				  streamingAssetsUrl: "StreamingAssets",
+				  companyName: "Nyantus",
+				  productName: "Drawing of the Dead",
+				  productVersion: "1.01",
+				  showBanner: unityShowBanner,
+				};
+		  
+				// By default, Unity keeps WebGL canvas render target size matched with
+				// the DOM size of the canvas element (scaled by window.devicePixelRatio)
+				// Set this to false if you want to decouple this synchronization from
+				// happening inside the engine, and you would instead like to size up
+				// the canvas DOM size and WebGL render target sizes yourself.
+				// config.matchWebGLToCanvasSize = false;
+		  
+				if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+				  // Mobile device style: fill the whole browser client area with thex` game canvas:
+		  
+				  var meta = document.createElement('meta');
+				  meta.name = 'viewport';
+				  meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+				  document.getElementsByTagName('head')[0].appendChild(meta);
+				  container.className = "unity-mobile";
+				  canvas.className = "unity-mobile";
+		  
+				  // To lower canvas resolution on mobile devices to gain some
+				  // performance, uncomment the following line:
+				  // config.devicePixelRatio = 1;
+		  
+		  
+				} else {
+				  // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
+		  
+				  canvas.style.width = "960px";
+				  canvas.style.height = "600px";
+				}
+		  
+				loadingBar.style.display = "block";
+		  
+				var script = document.createElement("script");
+				script.src = loaderUrl;
+				script.onload = () => {
+				  createUnityInstance(canvas, config, (progress) => {
+					progressBarFull.style.width = 100 * progress + "%";
+						}).then((unityInstance) => {
+						  loadingBar.style.display = "none";
+						  fullscreenButton.onclick = () => {
+							unityInstance.SetFullscreen(1);
+						  };
+						}).catch((message) => {
+						  alert(message);
+						});
+					  };
+		  
+				document.body.appendChild(script);
+		  
+			  </script>
+	</body>
 </html>
