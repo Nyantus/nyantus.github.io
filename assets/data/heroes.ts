@@ -7895,7 +7895,7 @@ export const Heroes: Record<string, Hero> = {
     baseAttack: 794,
     baseHP: 7332,
     baseDefense: 767,
-    heroSpecific: ['casterMaxHP', 'battleGod'],
+    heroSpecific: ['casterMaxHP', 'casterHasBattleGod'],
     attackIncrease: (inputValues: DamageFormData) => inputValues.casterHasBattleGod ? 2 : 1,
     skills: {
       s1: new Skill({
@@ -7905,7 +7905,7 @@ export const Heroes: Record<string, Hero> = {
         pow: () => 0.9,
         flat: (soulburn: boolean, inputValues: DamageFormData, artifact: Artifact) => inputValues.casterFinalMaxHP(artifact) * 0.10,
         flatTip: () => ({ casterMaxHP: 10 }),
-        enhance: [0.05, 0, 0.05, 0.05, 0, 0.15],
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.1],
         isSingle: () => true,
       }),
       s1_bis: new Skill({
@@ -7917,7 +7917,7 @@ export const Heroes: Record<string, Hero> = {
         flat: (soulburn: boolean, inputValues: DamageFormData, artifact: Artifact) => inputValues.casterFinalMaxHP(artifact) * 0.12,
         afterMath: (hitType: HitType, inputValues: DamageFormData) => new AftermathSkill({ hpPercent: 0.15 }),
         flatTip: () => ({ casterMaxHP: 6 }),
-        enhance: [0.05, 0, 0.05, 0.05, 0, 0.15],
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.1],
         isSingle: () => true,
       }),
       s2: new Skill({
@@ -7929,7 +7929,7 @@ export const Heroes: Record<string, Hero> = {
         penetrate: () => 0.5,
         flat: (soulburn: boolean, inputValues: DamageFormData, artifact: Artifact) => inputValues.casterFinalMaxHP(artifact) * (soulburn ? 0.3 : 0.2),
         flatTip: (soulburn: boolean) => ({ casterMaxHP: soulburn ? 30 : 20 }),
-        enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.1],
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.1],
         isSingle: () => true,
       })
     }

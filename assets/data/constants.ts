@@ -39,7 +39,7 @@ export const BattleConstants: Record<string, number> = {
   'casterPilfered': 0.8,
   'fractureAttack': 0.2,
   'fractureDefense': 0.05,
-  'battleGod': 1
+  'casterHasBattleGod': 1
 };
 
 export const HeroConstants = {
